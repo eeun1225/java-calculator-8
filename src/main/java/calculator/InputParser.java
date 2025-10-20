@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.regex.Pattern;
+
 public class InputParser {
     private static final String DEFAULT_DELIMITER = "[,:]";
     private static final String CUSTOM_DELIMITER_PREFIX = "//";
@@ -9,7 +11,7 @@ public class InputParser {
         if (hasCustomDelimiter(input)) {
             String customDelimiter = extractCustomDelimiter(input);
             String content = removeDelimiterPrefix(input);
-            return splitByDelimiter(content, customDelimiter);
+            return splitByDelimiter(content, Pattern.quote(customDelimiter));
         }
 
         return splitByDelimiter(input, DEFAULT_DELIMITER);
