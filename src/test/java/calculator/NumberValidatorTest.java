@@ -44,4 +44,11 @@ public class NumberValidatorTest {
         int[] result = validator.parseToNumbers(new String[]{"", "", ""});
         assertArrayEquals(new int[]{0, 0, 0}, result);
     }
+
+    @Test
+    void 음수_입력시_예외발생() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            validator.parseToNumbers(new String[]{"1", "-1", "3"});
+        });
+    }
 }

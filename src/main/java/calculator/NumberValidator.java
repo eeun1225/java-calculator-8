@@ -13,10 +13,18 @@ public class NumberValidator {
         if (value.trim().isEmpty()) {
             return 0;
         }
-        
+
         try {
-            return Integer.parseInt(value.trim());
+            int number = Integer.parseInt(value.trim());
+            validatePositive(number);
+            return number;
         } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private void validatePositive(int number) {
+        if (number < 0) {
             throw new IllegalArgumentException();
         }
     }
