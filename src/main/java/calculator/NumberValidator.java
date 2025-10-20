@@ -10,6 +10,10 @@ public class NumberValidator {
     }
 
     private int parseToNumber(String value) {
+        if (value.trim().isEmpty()) {
+            return 0;
+        }
+        
         try {
             return Integer.parseInt(value.trim());
         } catch (NumberFormatException e) {
