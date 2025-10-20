@@ -2,6 +2,13 @@ package calculator;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        InputOutput io = new InputOutput();
+        InputParser parser = new InputParser();
+        NumberValidator validator = new NumberValidator();
+        StringCalculator calculator = new StringCalculator(parser, validator);
+
+        String input = io.inputString();
+        int result = calculator.calculate(input);
+        io.printResult(result);
     }
 }
