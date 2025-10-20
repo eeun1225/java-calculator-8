@@ -31,6 +31,6 @@ public class InputParser {
 
     public String removeDelimiterPrefix(String input) {
         int newlineIndex = input.indexOf(CUSTOM_DELIMITER_SEPARATOR);
-        return input.substring(newlineIndex + 1);
+        return input.substring(newlineIndex + 2);
     }
 }
